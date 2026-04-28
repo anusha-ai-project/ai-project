@@ -10,10 +10,7 @@ if st.button("Generate"):
     if text:
 
         # Summarization
-        summarizer = pipeline(
-            task="summarization",
-            model="facebook/bart-large-cnn"
-        )
+      summarizer = pipeline("summarization")
 
         summary = summarizer(
             text,
