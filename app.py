@@ -9,7 +9,7 @@ if st.button("Generate"):
     if text:
 
         # ===== SUMMARY =====
-    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    
         summary = summarizer(text, max_length=100, min_length=30, do_sample=False)
 
         st.subheader("Summary")
