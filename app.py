@@ -1,5 +1,4 @@
 import streamlit as st
-from transformers import pipeline
 
 st.title("AI Text Summarizer & Quiz Generator")
 
@@ -7,12 +6,10 @@ text = st.text_area("Enter your text:")
 
 if st.button("Generate"):
     if text:
-        summarizer = pipeline("summarization")
-
-        summary = summarizer(text, max_length=80, min_length=20, do_sample=False)
+        summary = text[:200] + "..."
 
         st.subheader("Summary")
-        st.write(summary[0]['summary_text'])
+        st.write(summary)
 
         st.subheader("Quiz")
 
