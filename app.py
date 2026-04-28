@@ -8,14 +8,14 @@ text = st.text_area("Enter your text:")
 if st.button("Generate"):
     if text:
 
-        # ===== SUMMARY =====
-    
+        # SUMMARY
+        summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
         summary = summarizer(text, max_length=100, min_length=30, do_sample=False)
 
         st.subheader("Summary")
         st.write(summary[0]['summary_text'])
 
-        # ===== QUIZ =====
+        # QUIZ
         st.subheader("Quiz")
 
         questions = [
@@ -34,6 +34,6 @@ if st.button("Generate"):
             elif "benefits" in q.lower():
                 st.write("A: It improves efficiency, accuracy and automation")
 
-        # ===== IMAGE =====
+        # IMAGE
         st.subheader("Generated Image")
         st.image("https://picsum.photos/600/400")
